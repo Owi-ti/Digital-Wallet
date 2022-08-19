@@ -39,7 +39,7 @@ class ThirdPartyAdmin(admin.ModelAdmin):
 
 class LoanAdmin(admin.ModelAdmin):
     list_display= ('amount','wallet','loan_balance',)
-    search_fields=('loan_balance','amount',)
+    search_fields=('loan_balance','amount','wallet',)
 
 class RewardAdmin(admin.ModelAdmin):
     list_display= ('name','message','customer_id ','date_time',)
