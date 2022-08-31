@@ -33,8 +33,8 @@ class Transaction(models.Model):
     transaction_name = models.CharField(max_length=20)
     transaction_type = models.CharField(max_length=20)
     transaction_charge = models.IntegerField()
-    date_and_time = models.DateTimeField()
-    original_account = models.ForeignKey(Account,on_delete=models.CASCADE,related_name='Transaction_original_account',null=True)
+    date_and_time = models.DateTimeField
+    original_account=models.ForeignKey(Account,on_delete=models.CASCADE,related_name='Transaction_original_account',null="true")
     destination_account = models.ForeignKey(Account,on_delete=models.CASCADE,related_name='Transaction_destination_account')
     receipt = models.CharField(max_length=20)
 
