@@ -97,7 +97,10 @@ class Reward(models.Model):
     points = models.IntegerField()
 
 
-
+class Currency(models.Model):
+    country = models.CharField(max_length=30,null=True)
+    symbol = models.CharField(max_length=5,null=True)
+    amount = models.IntegerField()
 
 
 

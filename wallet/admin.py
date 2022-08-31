@@ -1,7 +1,7 @@
 
 from django.contrib import admin
 
-from .models import Customer, Wallet, Transaction, Account, Card, ThirdParty, Notification, Recipient, Loan, Reward
+from .models import Customer, Wallet, Transaction, Account, Card, ThirdParty, Notification, Recipient, Loan, Reward, Currency
 
 
 class CustomerAdmin(admin.ModelAdmin):
@@ -58,3 +58,8 @@ class WalletAdmin(admin.ModelAdmin):
     list_display= ('customer','balance','amount','time')
     search_fields=('customer','balance',)
 admin.site.register(Wallet,WalletAdmin)
+
+class CurrencyAdmin(admin.ModelAdmin):
+    list_display= ('country','symbol','amount')
+    search_fields= ('country','symbol','amount')
+admin.site.register(Currency,CurrencyAdmin)

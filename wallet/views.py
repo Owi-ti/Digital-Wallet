@@ -10,6 +10,7 @@ from .forms import NotificationRegistrationForm
 from .forms import RecipientRegistrationForm
 from .forms import LoanRegistrationForm 
 from .forms import RewardRegistrationForm
+from .forms import CurrencyRegistarationForm
 
 
 # Create your views here.
@@ -51,5 +52,9 @@ def register_loan(request):
 
 def register_reward(request):
     form = RewardRegistrationForm()
-    return render(request,"wallet/register_reward.html",{"form":form})                   
+    return render(request,"wallet/register_reward.html",{"form":form})      
+
+def register_currency(request):
+    form = CurrencyRegistarationForm()
+    return render(request,"wallet/register_currency.html",{"form":form})                     
 

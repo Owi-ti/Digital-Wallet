@@ -9,6 +9,7 @@ from .views import register_notification
 from .views import register_recipient
 from .views import register_loan
 from .views import register_reward
+from .views import register_currency
 
 
 
@@ -23,4 +24,5 @@ urlpatterns =[
     path("recipient/",register_recipient,name="registration"),
     path("loan/",register_loan,name="registration"),
     path("reward/",register_reward,name="registration"),
+    path("currency/",register_currency,name="registration"),
 ]

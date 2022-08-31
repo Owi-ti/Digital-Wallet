@@ -9,6 +9,7 @@ from .models import Notification
 from .models import Recipient
 from .models import Loan
 from .models import Reward
+from .models import Currency
 
 
 class CustomerRegistrationForm(forms.ModelForm):
@@ -59,4 +60,9 @@ class LoanRegistrationForm(forms.ModelForm):
 class RewardRegistrationForm(forms.ModelForm):
     class Meta:
         model= Reward
-        fields= "__all__"             
+        fields= "__all__"   
+
+class CurrencyRegistarationForm(forms.ModelForm):
+     class Meta:
+        model = Currency
+        fields= "__all__"  
