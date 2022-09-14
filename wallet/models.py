@@ -4,18 +4,27 @@ from django.db import models
 class Customer(models.Model):
     first_name = models.CharField(max_length=20)
     last_name  = models.CharField(max_length=20)
-    address = models.TextField()
+    address = models.CharField(max_length=50)
+    phone_number=models.CharField(max_length=20,null=True)
     email = models.CharField(max_length=15)
     gender = models.CharField(max_length=10)
     age = models.PositiveSmallIntegerField()
+    password= models.CharField(max_length=20,null=True)
+    id_number=models.IntegerField(null=True)
+    nationality=models.CharField(max_length=30,null=True)
+    # def __str__(self):
+    #     return str(self.form)
 
 
 class Wallet(models.Model):
     balance = models.IntegerField()
-    customer = models.ForeignKey(Customer,on_delete=models.CASCADE,related_name='Wallet_customer')
+    customer = models.ForeignKey(Customer,on_delete= models.CASCADE,related_name='Wallet_customer')
     amount = models.IntegerField()
     time = models.DateTimeField()
     status = models.CharField(max_length=20,null=True)
+    currency= models.ForeignKey('Currency', on_delete= models.CASCADE,related_name='wallet_currency',null=True)
+    pin= models.IntegerField(null=True)
+    
 
 
 class Account(models.Model):
@@ -33,10 +42,13 @@ class Transaction(models.Model):
     transaction_name = models.CharField(max_length=20)
     transaction_type = models.CharField(max_length=20)
     transaction_charge = models.IntegerField()
-    date_and_time = models.DateTimeField
+    date_and_time = models.DateTimeField()
     original_account=models.ForeignKey(Account,on_delete=models.CASCADE,related_name='Transaction_original_account',null="true")
     destination_account = models.ForeignKey(Account,on_delete=models.CASCADE,related_name='Transaction_destination_account')
     receipt = models.CharField(max_length=20)
+
+
+
 
 
 class Card(models.Model):
