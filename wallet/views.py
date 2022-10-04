@@ -19,6 +19,8 @@ from .models import Wallet
 from .models import Card
 
 
+
+
 # from . import forms
 #
 # Create your views here.
@@ -36,6 +38,25 @@ def list_customers(request):
     customers=Customer.objects.all()
     return render(request, "wallet/customers_list.html",
     {"customers":customers})
+
+def customer_profile(request,id):   
+    customer=Customer.objects.get(id=id)  
+    return render(request,"wallet"/customer_profile,
+    {"customers": customers})  
+
+def edit_customer(request,id):
+    customer=Customer.objects.all(id=id),
+    if request.method =="POST":
+        form=CustomerRegistrationForm(request.POST,instance=customer) 
+
+        if form.is_valid():
+           form.save()
+           return redirect("customer_profile", id= customer.id)
+    else:
+        form=CustomerRegistrationForm(instance=customerc)
+        return render(request,"wallet/edit_customer.html",{"form":form})     
+
+
 
 
 

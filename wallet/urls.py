@@ -10,6 +10,7 @@ from .views import register_recipient
 from .views import register_loan
 from .views import register_reward
 from .views import register_currency
+from .views import edit_customer
 from .import views
 
 
@@ -17,6 +18,10 @@ from .import views
 urlpatterns =[
     path("register/",register_customer,name="registration"),
     path("customers/", views.list_customers, name="customers_list"),
+    path("customers/<int:id>/",views.customer_profile,name="customer_profile"),
+    path("customers/edit/<int::id/",views.edit_customer,name="edit_customer"),
+    
+
 
     path("wallet/",register_wallet,name="registration"),
     path("wallets/", views.list_wallets,name="wallets_list"),
